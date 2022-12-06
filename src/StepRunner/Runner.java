@@ -17,7 +17,7 @@ import cucumber.api.junit.Cucumber;
 public class Runner {
 
 	public static String sTestcase;
-	public static String Build = "89102";
+	public static String Build = "89105";
 	public static String Language = "English";
 	public static String DeviceType = "iOS";
 	public static XSSFSheet sheet1;
