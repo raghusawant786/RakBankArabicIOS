@@ -1,0 +1,7 @@
+# Production
+Reports and Screenshots/
+target/
+Jars.zip
+bin/
+build.xml
+.DS_Store
