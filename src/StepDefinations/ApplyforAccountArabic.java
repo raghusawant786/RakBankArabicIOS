@@ -27,23 +27,13 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-//import io.cucumber.java.en.And;
-//import io.cucumber.java.en.Given;
-//import io.cucumber.java.en.Then;
-//import io.cucumber.java.en.When;
+
 
 public class ApplyforAccountArabic extends BaseClass {
 	public static IOSDriver<MobileElement> driver;
 	public static String sErrorLog;
 	public static String MobileNumber;
 
-	/*
-	 * @Given("^Application is on landing page23$") public void
-	 * application_is_on_landing_saving_salaride_page23() throws Throwable {
-	 * BaseClass.setup(); System.out.println("1111111111111111111"); try {
-	 * BaseClass.driver.closeApp(); } catch (Exception e) { // TODO Auto-generated
-	 * catch block e.printStackTrace(); } BaseClass.driver.quit(); }
-	 */
 
 	@Given("^Close App$")
 	public void CloseApp() throws Throwable {

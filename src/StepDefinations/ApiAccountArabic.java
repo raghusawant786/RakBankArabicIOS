@@ -66,29 +66,19 @@ import org.json.simple.parser.JSONParser;
 
 public class ApiAccountArabic extends BaseClass  {
 	
-	//public static ExtentTest WriteExtentReport;
-	//public static ExtentTest test;
+
 	public static int iAccountServicesPass=0;
 	public static int iAccountServicesFail=0;
 	public static int iCardServicesPass=0;
 	public static int iCardServicesFail=0;
 	
-	/*public static int iPaymentServicesPass=0;
-	public static int iPaymentServicesFail=0;
-	public static int iProfileServicesPass=0;
-	public static int iProfileServicesFail=0;
-	public static int iOtherServicesPass=0;
-	public static int iOtherServicesFail=0;*/
+
 	public static String sTokenkey = "03AGdBq25uLcqQmoufID-aCqfzV_wEOYl63bo92SDoA6R8NGE-FFkhlREI28Akm04ryxnbY29ydjyYumT5xBqllUXODFW_GSlSOhJZd43CjLhyBlsVDk1GzHs_aFeYfwvBRkkRgMqW-CLJ9VCOLgqyYy7KDhcmkg-Ox0gPIjgD8KGIBWbhekzGIiuawj_XD4cEkzEAJy5F_rtFzUt_C48HgptUfLq5CWjyPGxWBqWSWyXaKEuTHKTl1LGoCG0CF8yL6PG0Gtqi7KRk2i1K7LTw7UxOYu9GcxIj2qfsMj2ya_NdYQAdmIrlq4LjYOP49nKp5EbXzhDG0JQH6Pb8kFCt_S2MCI3u86Zyu4zqZv1ZturlDajTKoze7MaQUjCbXHTiqMsUcUCnq22LeLzHTcZ_FcEsAVbjsUZSM0gQk8q4M7uBNzQdF9ZO9Vi5y40fBtkJCiObo2sh82yL07tfuXpQpN7JYBqXEKGEOA";//"4f6351e5959fc2cbac38ed0760289517522893b9162b84ee9a7f043f5d286059";
 	public static String Token = "";
 	public static String prospectId = "";
 	public static String sErrorLog;
 	
 	
-	
-	
-	
-	//public static String MobileNumber1="554562388";
 	static String saveDirectory = "C://Users//xaatars//Desktop//Shahrukh";
 	static ArrayList<String> ApiIds = new ArrayList<String>();
 
@@ -438,17 +428,11 @@ public class ApiAccountArabic extends BaseClass  {
 				//.contentType("application/json")
 				.extract()
 				.response();
-		//System.out.println(response.getStatusCode());
-		//System.out.println("-------------"+response.asString());
-		//System.out.println("-------------"+response.getBody().asString());
+
 		int iResponseCode = response.getStatusCode();
 		System.out.println("-------------"+iResponseCode);
 		System.out.println("-------------"+response.getStatusLine());
-		//System.out.println("-------------"+response.getHeader("content-type"));
-		//System.out.println("-------------"+response.getTime()+" Seconds");
-	     // Token = response.jsonPath().getString("AccessToken");
-	     // System.out.print(Token);
-		//String Token = System.out.println("Bearer " +response.getHeader("AccessToken"));
+		
 		Token = response.getHeader("AccessToken");
 		Framework.WriteExtentReport.log(Status.INFO, "<b>Response:</b> "+response.asString());
 		Framework.WriteExtentReport.log(Status.INFO, "<b>Status code:</b> "+iResponseCode);
@@ -685,92 +669,18 @@ public class ApiAccountArabic extends BaseClass  {
 				+ "}\n"
 				+ "";
 		
-		/*String body1="{\n"
-				+ "  \"viewId\": \"UpdateKycEFRView\",\n"
-				+ "  \"kycInfo\": {\n"
-				+ "    \"fullName\": \"abcgftrhf abcgft\",\n"
-				+ "    \"firstName\": \"abcgftrhf\",\n"
-				+ "    \"lastName\": \"abcgft\",\n"
-				+ "    \"residenceCountry\": \"AE\",\n"
-				+ "    \"dateOfBirth\": \"1983-12-31\",\n"
-				+ "    \"gender\": \"M\",\n"
-				+ "    \"placeOfBirth\": \"POZHIYOOR, KERALA\",\n"
-				+ "    \"nationalityMOI\": \"IN\",\n"
-				+ "    \"kycDocuments\": [\n"
-				+ "      {\n"
-				+ "        \"documentType\": \"EMID\",\n"
-				+ "        \"documentNo\": \"784198368187654\",\n"
-				+ "        \"documentExpiryDate\": \"2023-12-15\",\n"
-				+ "        \"documentIssueDate\": \"2019-07-14\",\n"
-				+ "        \"countryOfIssue\": \"AE\",\n"
-				+ "        \"documentIssuePlace\": \"AE\",\n"
-				+ "        \"kycDocumentMetadata\": [\n"
-				+ "          {\n"
-				+ "            \"fileName\": \"id-front.png\",\n"
-				+ "            \"filePath\": \"/apps/FEBA_BATCH_11.11/retailAccOnboarding/Documents/"+prospectId+"/id-front.png\",\n"
-				+ "            \"fileDescription\": \"Emirates ID front\",\n"
-				+ "            \"fileFormat\": \"image/png\",\n"
-				+ "            \"documentRequired\": true,\n"
-				+ "            \"bpmDocumentType\": \"EMID_Front\"\n"
-				+ "          },\n"
-				+ "          {\n"
-				+ "            \"fileName\": \"id-back.png\",\n"
-				+ "            \"filePath\": \"/apps/FEBA_BATCH_11.11/retailAccOnboarding/Documents/"+prospectId+"/id-back.png\",\n"
-				+ "            \"fileDescription\": \"Emirates ID back\",\n"
-				+ "            \"fileFormat\": \"image/png\",\n"
-				+ "            \"documentRequired\": true,\n"
-				+ "            \"bpmDocumentType\": \"EMID_Back\"\n"
-				+ "          }\n"
-				+ "        ]\n"
-				+ "      },\n"
-				+ "      {\n"
-				+ "        \"documentType\": \"PPT\",\n"
-				+ "        \"documentNo\": \"T2376506\",\n"
-				+ "        \"documentExpiryDate\": \"2031-03-01\",\n"
-				+ "        \"documentIssueDate\": \"2021-03-02\",\n"
-				+ "        \"countryOfIssue\": \"IN\",\n"
-				+ "        \"documentIssuePlace\": \"IN\",\n"
-				+ "        \"kycDocumentMetadata\": [\n"
-				+ "          {\n"
-				+ "            \"fileName\": \"passport-front.png\",\n"
-				+ "            \"filePath\": \"/apps/FEBA_BATCH_11.11/retailAccOnboarding/Documents/"+prospectId+"/passport-front.png\",\n"
-				+ "            \"fileDescription\": \"Passport front\",\n"
-				+ "            \"fileFormat\": \"image/png\",\n"
-				+ "            \"documentRequired\": true,\n"
-				+ "            \"bpmDocumentType\": \"Passport_FirstPage\"\n"
-				+ "          }\n"
-				+ "        ]\n"
-				+ "      },\n"
-				+ "      {\n"
-				+ "        \"documentType\": \"VISA\",\n"
-				+ "        \"countryOfIssue\": \"AE\",\n"
-				+ "        \"documentNo\": \"201/2019/7255084\",\n"
-				+ "        \"documentExpiryDate\": \"2022-12-15\",\n"
-				+ "        \"documentIssueDate\": \"2019-07-16\",\n"
-				+ "        \"documentIssuePlace\": \"FEDERAL AUTHORITY FOR IDENTITY CITIZENSHIP CUSTOMS & PORT SECURITY \\\\DUBAI\",\n"
-				+ "        \"kycDocumentMetadata\": []\n"
-				+ "      }\n"
-				+ "    ]\n"
-				+ "  }\n"
-				+ "}\n"
-				+ "";*/
+		
 		
 		
 		Framework.WriteExtentReport.log(Status.INFO, "<b>Request:</b> "+sRequest);
 		Framework.WriteExtentReport.log(Status.INFO, "<b>Requestbody:</b> "+body1);
 		
 		System.out.println(body1);
-		
-		//String sTokenkeys = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJPQXV0aFRva2VuIjoiM2VkM2Q1YzBlOWNmYzk5NzA4M2NlYzNkYWFmNTBiZTBhNmFiYzMzMGIzNDUyMzcwYWI3OGNjNzIzMDU2ODRjOCIsInByb3NwZWN0SWQiOiIyMTMxIiwicm9sZSI6IkNVU1RPTUVSIiwicGhvbmVOdW1iZXIiOiI1NTY3ODM0NTIiLCJLeWNPYXV0aEFjY2Vzc1Rva2VuIjoiZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKemRXSWlPaUprWldnaUxDSjFjMlZ5Vkhsd1pTSTZJa0ZRVUNJc0ltcDBhU0k2SW1FMllXWTFZems1TFRVMVkyRXROR0kwT1MxaVlqRTJMV0ZqWW1ZM1pEWTRaVE00T0NJc0ltbGhkQ0k2TVRZMU9EUTROekk0T1N3aVpYaHdJam94TmpVNE5Ea3dPRGc1ZlEubWoxaXFlRFBDSHhwUkZwMUlrNzFHa1NOekpycFZudEZvMExpLUxOc2NvdyIsIk9BdXRoUmVmcmVzaFRva2VuIjoiOGRhZDU1MzYyZGZmNDdmYTZmZjIyNWVmODc1NWI0YzFkNTA5MTAxZDIyZTdmNzY1YzIyNmQ4NmZiZGE2Mzk5ZCIsIm9hdXRoVG9rZW5FeHBpcnlUaW1lIjoiMjAyMi0wNy0yMlQxNTowNjo0OS45MjQiLCJTdGF0ZW1lbnRPYXV0aEFjY2Vzc1Rva2VuIjoiZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKemRXSWlPaUprWldnaUxDSjFjMlZ5Vkhsd1pTSTZJa0ZRVUNJc0ltcDBhU0k2SWpSbU9HUXpOamswTFRjeFlqZ3ROREl6WkMwNVpqWXlMV1kyTURJME5qRXpOMkl3TUNJc0ltbGhkQ0k2TVRZMU9EUTROekk0T1N3aVpYaHdJam94TmpVNE5Ea3dPRGc1ZlEuTnlJZ2EwWHpoSm9pSlhpalFwZFRwVXVocHJTVGhJaGNqc0hHZVg3emxWTSJ9.41_9F7t9qFvYZU272m1aRFvQ3KWT-hJeJhU8mO-02S0";
-		
 		String sTokenkeys = "Bearer "+Token;
 		
 		System.out.print(sTokenkeys);
 		
-		//String Tokens = System.out.println("Bearer"+Token);
-		//Framework.WriteExtentReport.log(Status.INFO, "<b>Requestbody:</b> "+body);
-		//Response response = get(sRequest);
-		
+
 		
 		
 	
@@ -781,92 +691,6 @@ public class ApiAccountArabic extends BaseClass  {
 				.header("Authorization",sTokenkeys)
 				.body(body1)
 				.header("X-Recaptcha-Token",sTokenkey)
-				/*.body("{\n"
-						+ "  \"viewId\": \"UpdateKycEFRView\",\n"
-						+ "  \"kycInfo\": {\n"
-						+ "    \"fullName\": \""+fullname+"\",\n"
-						+ "    \"firstName\": \""+firstName+"\",\n"
-						+ "    \"lastName\": \""+lastName+"\",\n"
-						+ "    \"residenceCountry\": \"AE\",\n"
-						+ "    \"dateOfBirth\": \"1983-12-31\",\n"
-						+ "    \"gender\": \"M\",\n"
-						+ "    \"placeOfBirth\": \"POZHIYOOR, KERALA\",\n"
-						+ "    \"nationalityMOI\": \"IN\",\n"
-						+ "    \"kycDocuments\": [\n"
-						+ "      {\n"
-						+ "        \"documentType\": \"EMID\",\n"
-						+ "        \"documentNo\": \"784198368135210\",\n"
-						+ "        \"documentExpiryDate\": \"2023-07-25\",\n"
-						+ "        \"documentIssueDate\": \"2019-07-14\",\n"
-						+ "        \"countryOfIssue\": \"AE\",\n"
-						+ "        \"documentIssuePlace\": \"AE\",\n"
-						+ "        \"kycDocumentMetadata\": [\n"
-						+ "          {\n"
-						+ "            \"fileName\": \"id-front.png\",\n"
-						+ "            \"filePath\": \"/apps/FEBA_BATCH_11.11/retailAccOnboarding/Documents/3542/id-front.png\",\n"
-						+ "            \"fileDescription\": \"Emirates ID front\",\n"
-						+ "            \"fileFormat\": \"image/png\",\n"
-						+ "            \"documentRequired\": true,\n"
-						+ "            \"bpmDocumentType\": \"EMID_Front\"\n"
-						+ "          },\n"
-						+ "          {\n"
-						+ "            \"fileName\": \"id-back.png\",\n"
-						+ "            \"filePath\": \"/apps/FEBA_BATCH_11.11/retailAccOnboarding/Documents/3542/id-back.png\",\n"
-						+ "            \"fileDescription\": \"Emirates ID back\",\n"
-						+ "            \"fileFormat\": \"image/png\",\n"
-						+ "            \"documentRequired\": true,\n"
-						+ "            \"bpmDocumentType\": \"EMID_Back\"\n"
-						+ "          }\n"
-						+ "        ]\n"
-						+ "      },\n"
-						+ "      {\n"
-						+ "        \"documentType\": \"PPT\",\n"
-						+ "        \"documentNo\": \"T2376506\",\n"
-						+ "        \"documentExpiryDate\": \"2031-03-01\",\n"
-						+ "        \"documentIssueDate\": \"2021-03-02\",\n"
-						+ "        \"countryOfIssue\": \"IN\",\n"
-						+ "        \"documentIssuePlace\": \"IN\",\n"
-						+ "        \"kycDocumentMetadata\": [\n"
-						+ "          {\n"
-						+ "            \"fileName\": \"passport-front.png\",\n"
-						+ "            \"filePath\": \"/apps/FEBA_BATCH_11.11/retailAccOnboarding/Documents/3542/passport-front.png\",\n"
-						+ "            \"fileDescription\": \"Passport front\",\n"
-						+ "            \"fileFormat\": \"image/png\",\n"
-						+ "            \"documentRequired\": true,\n"
-						+ "            \"bpmDocumentType\": \"Passport_FirstPage\"\n"
-						+ "          }\n"
-						+ "        ]\n"
-						+ "      },\n"
-						+ "      {\n"
-						+ "        \"documentType\": \"VISA\",\n"
-						+ "        \"countryOfIssue\": \"AE\",\n"
-						+ "        \"documentNo\": \"201/2019/7255084\",\n"
-						+ "        \"documentExpiryDate\": \"2023-07-15\",\n"
-						+ "        \"documentIssueDate\": \"2019-07-16\",\n"
-						+ "        \"documentIssuePlace\": \"FEDERAL AUTHORITY FOR IDENTITY CITIZENSHIP CUSTOMS & PORT SECURITY \\\\DUBAI\",\n"
-						+ "        \"kycDocumentMetadata\": []\n"
-						+ "      }\n"
-						+ "    ]\n"
-						+ "  }\n"
-						+ "}\n"
-						+ "")*/
-				
-				
-				
-				/*.body("{\r\n" + 
-						"  \"fullName\": fullName,\r\n" + 
-						"  \"emailId\": \"bhatabai.patil@rakbank.ae\",\r\n" + 
-						"  \"countryCode\": 971,\r\n" + 
-						"  \"mobileNo\": \"504963477\",\r\n" + 
-						"  \"prodCategory\": \"C\",\r\n" + 
-						"  \"personOfDetermination\": \"true\",\r\n" + 
-						"  \"typeOfDisability\": \"others\",\r\n" + 
-						"  \"disabilityRemarks\": \"test\",\r\n" + 
-						"  \"language\": \"EN\",\r\n" + 
-						"  \"agentCode\": \"5555\",\r\n" + 
-						"  \"viewId\": \"createView\"\r\n" + 
-						"}\r\n" + 
-						"")*/
 				.when()
 				.patch(sRequest)
 				.then()
